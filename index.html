@@ -6,30 +6,69 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row justify-content-center form-row">
-            <div class=" col-lg-6 col-md-10 col-sm-10 Login-formContainer">
+        <div class="row justify-content-center Login-formRow">
+            <div class="col-lg-6 col-md-10 col-11 Login-formContainer fadeIn wow">
+                <div class="text-center">
+                    <img src="./images/LoginImage.png" alt="Imagen de logo" class="Logo-mainImage">
+                </div>
                 <form>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                        <label for="exampleInputEmail1" class="Login-label">Email</label>
+                        <input type="email" class="form-control" id="loginEmail1" aria-describedby="emailHelp" placeholder="Email">
                         <small id="emailHelp" class="form-text text-muted">Tuinformación nunca sera compartida y esta asegurada.</small>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Contraseña</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                        <label for="exampleInputPassword1" class="Login-label">Contraseña</label>
+                        <input type="password" class="form-control" id="loginPassword1" placeholder="Contraseña">
                     </div>
                     <div class="Login-buttonContainer col-12">
-                        <button type="submit" class="btn Login-submitButton">Iniciar sesión</button>
+                        <button type="button" class="btn Login-submitButton">Iniciar sesión</button>
+                        <p class="Login-registerHint">¿No tienes una cuenta aun? <strong>Registrate</strong></p> 
                     </div>
                 </form>
             </div>
         </div>
+
+        <div class="row justify-content-center Register-formRow">
+                <div class="col-lg-6 col-md-10 col-11 Register-formContainer">
+                    <div class="text-center">
+                        <img src="./images/LoginImage.png" alt="Imagen de logo" class="Logo-mainImage">
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="Login-label">Nombre</label>
+                            <input type="text" class="form-control" id="registerName" aria-describedby="emailHelp" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="Login-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" aria-describedby="emailHelp" placeholder="Email">
+                            <small id="emailHelp" class="form-text text-muted">Tuinformación nunca sera compartida y esta asegurada.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="Login-label">Contraseña</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Contraseña">
+                        </div>
+                        <div class="Login-buttonContainer col-12">
+                            <button type="button" class="btn Login-submitButtonRegister">Registrarse</button>
+                            <p class="Login-loginHint">¿Ya tienes una cuenta? <strong>Iniciar sesión</strong></p> 
+                        </div>
+                    </form>
+                </div>
+            </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script src="./js/firebaseConfig.js"></script>
+    <script src="./js/wow.min.js"></script>
+    <script src="./js/system.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 </html>

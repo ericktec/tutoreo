@@ -1,0 +1,61 @@
+.Login-submitButton{
+    background: #8a8081;
+    color: #fff;
+}
+
+.Login-submitButtonRegister{
+    background: #8a8081;
+    color: #fff;
+}
+
+.Login-buttonContainer{
+    text-align: center ;
+    margin-top: 2rem;
+}
+
+.Login-formContainer{
+    border: 2px solid #8a8081;
+    padding: 30px;
+}
+
+.Register-formContainer{
+    border: 2px solid #8a8081;
+    padding: 30px;
+}
+
+
+.Login-formRow{
+    margin-top: 11rem;
+}
+
+.Register-formRow{
+    margin-top: 9rem;
+    display: none;
+}
+
+.Logo-mainImage{
+    width: 18%;
+    border-radius: 100%;
+    margin-bottom: 2rem;
+}
+
+.Login-label{
+    padding-left: 4px;
+}
+
+.Login-registerHint{
+    font-size: .9rem;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+    cursor: pointer;
+
+}
+
+.Login-loginHint{
+    font-size: .9rem;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+    cursor: pointer;
+
+}
+
