@@ -1,0 +1,52 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container-fluid{
+    padding: 0 !important;
+}
+
+.Teacher-navegacion{
+   background: #8a8081;  
+}
+
+.Teacher-link{
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.navbar-brand{
+    padding: .5rem 1rem;
+}
+
+.btn-outline-success{
+    color: #fff !important;
+    border-color: #fff;
+}
+
+.Theme-title{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #8a8081;
+    text-align: center; 
+}
+
+.Theme-description{
+    margin-bottom: 2rem;
+    color: #8a8081;
+    text-align: justify;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.Theme-reproducer{
+    width: 70% !important;
+    margin-left: 15%;
+    height: 35rem;
+}
+
+.Theme-file{
+    margin-top: 1.5rem;
+    margin-left: 15%;
+    margin-bottom: 4rem;
+}

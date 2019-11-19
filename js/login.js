@@ -20,7 +20,7 @@ function init_loginControls(){
         var name = $("#registerName").val();
         if(email.length > 0 &&  password.length > 0 && name.length > 0){
             firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-                firebase.database().ref('/Users' + firebase.auth().currentUser.uid).set({
+                firebase.database().ref('Users/' + firebase.auth().currentUser.uid).set({
                     type: 'student',
                     name: name,
                     homeworks:[],
@@ -33,17 +33,33 @@ function init_loginControls(){
     });
 
     $(".Login-submitButton").click(function(){
-        var email = $("#loginEmail").val();
-        var password = $("#loginPassword").val();
+        var email = $("#loginEmail1").val();
+        var password = $("#loginPassword1").val();
         if(email.length > 0 &&  password.length > 0){
             firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                //revisar type y mandar a pantalla segun tipo de student
+                console.log(errorMessage);
+                console.log("test");
               });
         }
     });
 }
+
+firebase.auth().onAuthStateChanged(function(user){
+    if(user){
+        console.log(user)
+        var userInfo = firebase.database().ref('Users/' + firebase.auth().currentUser.uid);
+        userInfo.on('value', function(snapshot) {
+           console.log(snapshot.val());
+           if(snapshot.val().type === 'teacher'){
+                window.location.replace('teacher.html');
+           }else{
+                window.location.replace('student.html');
+           }
+        });
+    }
+})
 
 
 
