@@ -1,0 +1,61 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container-fluid{
+    padding: 0 !important;
+}
+
+.Student-navegacion{
+   background: #8a8081;  
+}
+
+.Student-link{
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.navbar-brand{
+    padding: .5rem 1rem;
+}
+
+.btn-outline-success{
+    color: #fff !important;
+    border-color: #fff;
+}
+
+.Student-myList{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.Student-myListGlobal{
+    padding-left: 30px;
+    padding-right: 30px;
+    display: none;
+}
+
+.Student-myListHead{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #8a8081;
+    text-align: center; 
+}
+
+.list-group-item:first-child{
+    border-radius: 0px !important;
+}
+
+
+.list-group a{
+    margin-bottom: 1rem;
+}
+
+.modal-footer{
+    justify-content: center;
+}
+
+.Student-calificationSelect{
+    margin-top: .8rem;
+    margin-bottom: .8rem;
+}
