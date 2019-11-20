@@ -6,11 +6,11 @@ body{
     padding: 0 !important;
 }
 
-.Student-navegacion{
+.Teacher-navegacion{
    background: #8a8081;  
 }
 
-.Student-link{
+.Teacher-link{
     color: #fff !important;
     text-decoration: none;
 }
@@ -24,18 +24,18 @@ body{
     border-color: #fff;
 }
 
-.Student-myList{
+.Teacher-myList{
     padding-left: 30px;
     padding-right: 30px;
 }
 
-.Student-myListGlobal{
+.Teacher-myListGlobal{
     padding-left: 30px;
     padding-right: 30px;
     display: none;
 }
 
-.Student-myListHead{
+.Teacher-myListHead{
     margin-top: 2rem;
     margin-bottom: 2rem;
     color: #8a8081;
@@ -55,7 +55,7 @@ body{
     justify-content: center;
 }
 
-.Student-calificationSelect{
+.Teacher-calificationSelect{
     margin-top: .8rem;
     margin-bottom: .8rem;
 }

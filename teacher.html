@@ -7,38 +7,41 @@
     <title></title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/Student.css">
+    <link rel="stylesheet" href="./css/Teacher.css">
     <link rel="stylesheet" href="./css/animate.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg Student-navegacion">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand  Student-link" href="#">Tutoreo</a>
-          
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                  <a class="nav-link Student-link Student-ownThemes" href="#">Mis temas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link Student-link Student-addTheme" href="#">Añadir temas</a>
-                </li>
-              </ul>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0">Buscar Tema</button>
-              </form>
-            </div>
-        </nav>
-          <section class="Student-myList">
-            <div class="Student-myListHead">
+
+          <nav class="navbar navbar-expand-lg Teacher-navegacion">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <a class="navbar-brand  Teacher-link" href="#">Tutoreo</a>
+            
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <li class="nav-item active">
+                    <a class="nav-link Teacher-link Teacher-ownThemes" href="#">Mis temas</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link Teacher-link Teacher-addTheme" href="#">Añadir temas</a>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0">Buscar Tema</button>
+                </form>
+              </div>
+          </nav>
+
+          <section class="Teacher-myList">
+            <div class="Teacher-myListHead">
                 <h1>Mis temas</h1>
             </div>
+
             <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action">
                   <div class="d-flex w-100 justify-content-between">
@@ -84,7 +87,7 @@
                                         <div class="d-flex w-100 justify-content-between">
                                         <h5 class="mb-1">List group item heading</h5>
                                         </div>
-                                        <small></small><div class="input-group Student-calificationSelect">
+                                        <small></small><div class="input-group Teacher-calificationSelect">
                                                 <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
                                                   <option selected>Calificación</option>
                                                   <option value="1">1</option>
@@ -114,8 +117,9 @@
             </div>
             <!-- -->
           </section>
-          <section class="Student-myListGlobal">
-                <div class="Student-myListHead">
+          
+          <section class="Teacher-myListGlobal">
+                <div class="Teacher-myListHead">
                     <h1>Temas solicitados</h1>
                 </div>
                 <div class="list-group">
@@ -155,8 +159,8 @@
                                         <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="http://www.youtube.com/fracciones">
                                 </div>
                                 <div class="form-group">
-                                    <label for="Student-themeFile">Archivo del tema</label>
-                                    <input type="file" class="" id="Student-themeFile">
+                                    <label for="Teacher-themeFile">Archivo del tema</label>
+                                    <input type="file" class="" id="Teacher-themeFile">
                                 </div>
                                 <div class="form-group">
                                     <button type="button" class="btn btn-secondary">Subir tema</button>
@@ -177,7 +181,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-.js"></script>
     <script src="./js/firebaseConfig.js"></script>
     <script src="./js/wow.min.js"></script>
-    <script src="./js/Student.js"></script>
+    <script src="./js/Teacher.js"></script>
     <script src="./js/system.js"></script>
 </body>
 </html>

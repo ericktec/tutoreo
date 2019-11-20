@@ -26,4 +26,13 @@ function init_studentControls(){
           // regresar a index.html
         }
     });
+    $(".Student-ownThemes").click(function (){
+        $(".Student-myListGlobal").css('display','none');  
+        $(".Student-myList").css("display","block");  
+   });
+
+   $(".Student-globalReseach").click(function (){
+        $(".Student-myListGlobal").css("display","block");  
+        $(".Student-myList").css("display",'none');  
+    });
 }
