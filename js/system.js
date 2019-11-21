@@ -55,10 +55,21 @@ class Student {
     set type( value ) {
         this._types = value;
     }
+
+    
  
 }
 
-var user = new Student('','','',[],[],'');
+class Theme {
+    constructor(id,nombre,descripcion,trabajos,archivo,link, tutorId){
+        this._id=id;
+        this._name=nombre;
+        this._description=descripcion;
+        this._works=trabajos;
+        this._file=archivo;
+        this._link=link;
+    }
+}
 
 
 class Teacher {
@@ -66,8 +77,8 @@ class Teacher {
         this._name = cName;
         this._email = cEmail;
         this._uid = cUid;
-        this._type = cType
-        this._themes = cThemes
+        this._type = cType;
+        this._themes = cThemes;
     }
     
     get name() {
@@ -109,7 +120,57 @@ class Teacher {
     set type( value ) {
         this._types = value;
     }
- 
+
+    UploadTheme(Name, Description, Link,fileUrl){
+        console.log(Name+Description+Link+fileUrl)
+        firebase.database().ref('Themes/' + firebase.auth().currentUser.uid).set({
+            name: Name,
+            description: Description,
+            link: Link,
+            file:fileUrl
+        })
+
+
+
+    }
+
+    UploadFile(e) {
+        var UploadTheme = document.getElementById("UploadTheme")
+        UploadTheme.style.display = "none";
+        var file = e.target.files[0];
+
+        var storageRef = firebase.storage().ref('Theme/' + file.name);
+        var task = storageRef.put(file);
+        task.on('state_changed',
+            function progress(snapshot) {
+                var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+                switch (snapshot.state) {
+                    case firebase.storage.TaskState.PAUSED: // or 'paused'
+                        console.log('Upload is paused');
+                        break;
+                    case firebase.storage.TaskState.RUNNING: // or 'running'
+                        console.log('Upload is running');
+                        break;
+                }
+            },function(error){
+
+            },
+            function(){
+                task.snapshot.ref.getDownloadURL().then(function(downloadURL){
+                    console.log(downloadURL);
+                    var Name = $("#exampleFormControlInput1").val();
+                    var Description = $("#exampleFormControlInput3").val();
+                    var link = $("#exampleFormControlInput2").val();
+                    console.log(Name + Description + link)
+                    tutor.UploadTheme(Name, Description, link,downloadURL);
+
+
+                }) 
+            }
+        );
+
+    }
+
 }
 
-var teacher = new Teacher('','','',[],'');
