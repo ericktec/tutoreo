@@ -42,7 +42,7 @@ function init_getAllThemes(){
     firebase.database().ref('Themes/').once('value', function(snapshot) {
         globalThemes = []
         snapshot.forEach(theme => {
-            var tempTheme = new Themes(theme.val().name,theme.val().description,theme.key,theme.val().teacher,theme.val().link,theme.val().file);
+            var tempTheme = new Themes(theme.key,theme.val().name,theme.val().description,[],theme.val().file,theme.val().link,theme.val().teacher);
             globalThemes.push(tempTheme)
         });
         globalThemes.forEach(themes =>{
@@ -65,9 +65,10 @@ function init_addTheme(){
                     name: themes.name,
                     description: themes.description,
                     uid: key,
-                    teacher: themes.teacher,
-                    video: themes.video,
-                    file: themes.file
+                    teacher: themes.tutorId,
+                    video: themes.link,
+                    file: themes.file,
+                    works: themes._works
                  }
                 myRef.set(newData);
             }

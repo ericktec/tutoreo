@@ -6,7 +6,8 @@ $( document ).ready(function() {
 function init_teacherControls(){
    $(".Teacher-ownThemes").click(function (){
         $(".Teacher-myListGlobal").css('display','none');  
-        $(".Teacher-myList").css("display","block");  
+        $(".Teacher-myList").css("display","block");
+        tutor.viewMyThemes() 
    });
 
    $(".Teacher-addTheme").click(function (){
@@ -35,8 +36,9 @@ var fileButton = document.getElementById("Teacher-themeFile");
 
 fileButton.addEventListener('change', function(e){
     tutor.UploadFile(e);
-    
 })
+
+
 
 
 
