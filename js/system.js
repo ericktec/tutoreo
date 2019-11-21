@@ -245,16 +245,18 @@ class Teacher {
         firebase.database().ref('Themes/').once('value', function(snapshot){
             snapshot.forEach(theme => {
                 if(theme.val().teacher===firebase.auth().currentUser.uid){
-                    console.log(theme.val());
-                    themes.innerHTML+='<a href="#" class="list-group-item list-group-item-action">'+
+                    firebase.database().ref('/Users/' + theme.idAlumno).once('value').then(function(snapshot) {
+                        themes.innerHTML+='<a href="#" class="list-group-item list-group-item-action">'+
                 '<div class="d-flex w-100 justify-content-between">'+
                   '<h5 class="mb-1">'+theme.val().name+'</h5>'+
                   '<small>Tema</small>'+
                 '</div>'+
                 '<p class="mb-1">'+theme.val().description+'</p>'+
-                '<small> <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalScrollable">Revisar Trabajos</button></small>'+
+                '<small> <button type="button" onclick=obtenerTrabajos(\''+theme.key+'\') class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalScrollable">Revisar Trabajos</button></small>'+
                 '<small> <button onclick=seeDocument(\''+theme.val().file+'\') type="button" class="btn btn-outline-secondary" >Revisar Archivo</button></small>'+
               '</a>'
+                      });
+                    
                 }
                 
             });
