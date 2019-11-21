@@ -123,14 +123,14 @@ class Teacher {
 
     UploadTheme(Name, Description, Link,fileUrl){
         console.log(Name+Description+Link+fileUrl)
-        firebase.database().ref('Themes/' + firebase.auth().currentUser.uid).set({
+        var newthemekey = firebase.database().ref().child('posts').push().key;
+        firebase.database().ref('Themes/' + newthemekey).set({
             name: Name,
             description: Description,
             link: Link,
-            file:fileUrl
+            file:fileUrl,
+            teacher: firebase.auth().currentUser.uid
         })
-
-
 
     }
 
