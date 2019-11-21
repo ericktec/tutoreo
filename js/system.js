@@ -1,3 +1,6 @@
+var idThemeHelper;
+
+
 class Student {
     constructor (cName,cEmail,cUid,cHomeworks,cThemes,cType) {
         this._name = cName;
@@ -133,6 +136,7 @@ class Themes {
 }
 
 var globalThemes = []
+var ownThemes = []
 
 
 class Teacher {
