@@ -55,80 +55,22 @@ class Student {
     set type( value ) {
         this._types = value;
     }
+
+
+
 }
 
-var userS = new Student('','','',[],'','')
-
-class Themes {
+class Theme {
     constructor(id,nombre,descripcion,trabajos,archivo,link, tutorId){
         this._id=id;
         this._name=nombre;
         this._description=descripcion;
-        this._worksArray=trabajos;
+        this._works=trabajos;
         this._file=archivo;
         this._link=link;
-        this._tutorId=tutorId;
     }
-
-    get id() {
-        return this._id
-    }
-
-    set id( value ) {
-        this._id = value;
-    }
-
-    get name() {
-        return this._name
-    }
-
-    set name( value ) {
-        this._name = value;
-    }
-
-    get description() {
-        return this._description
-    }
-
-    set description( value ) {
-        this._description = value;
-    }
-
-    get tutorId() {
-        return this._tutorId
-    }
-
-    set tutorId( value ) {
-        this._tutorId = value;
-    }
-
-    get link() {
-        return this._link
-    }
-
-    set link( value ) {
-        this._link = value;
-    }
-
-    get file() {
-        return this._file
-    }
-
-    set file( value ) {
-        this._file = value;
-    }
-
-    get _works() {
-        return this._worksArray
-    }
-
-    set _works(value ) {
-        this._worksArray = value;
-    }
-
 }
 
-var globalThemes = []
 
 class Teacher {
     constructor (cName,cEmail,cUid,cThemes,cType) {
@@ -235,3 +177,64 @@ class Teacher {
 var teacher = new Teacher('','','',[],'');
 
 
+class Themes {
+    constructor (cName,cdescription,cuid,cteacher,cvideo,cfile) {
+        this._name = cName;
+        this._description = cdescription;
+        this._uid = cuid;
+        this._teacher = cteacher;
+        this._video = cvideo;
+        this._file = cfile;
+    }
+
+    get name() {
+        return this._name
+    }
+
+    set name( value ) {
+        this._name = value;
+    }
+
+    get description() {
+        return this._description
+    }
+
+    set description( value ) {
+        this._description = value;
+    }
+
+    get uid() {
+        return this._uid
+    }
+
+    set uid( value ) {
+        this._uid = value;
+    }
+
+    get teacher() {
+        return this._teacher
+    }
+
+    set teacher( value ) {
+        this._teacher = value;
+    }
+
+    get video() {
+        return this._video
+    }
+
+    set video( value ) {
+        this._video = value;
+    }
+
+    get file() {
+        return this._file
+    }
+
+    set file( value ) {
+        this._file = value;
+    }
+
+}
+
+var globalThemes = []

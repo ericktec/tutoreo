@@ -42,7 +42,7 @@ function init_getAllThemes(){
     firebase.database().ref('Themes/').once('value', function(snapshot) {
         globalThemes = []
         snapshot.forEach(theme => {
-            var tempTheme = new Themes(theme.key,theme.val().name,theme.val().description,[],theme.val().file,theme.val().link,theme.val().teacher);
+            var tempTheme = new Themes(theme.val().name,theme.val().description,theme.key,theme.val().teacher,theme.val().link,theme.val().file);
             globalThemes.push(tempTheme)
         });
         globalThemes.forEach(themes =>{
@@ -56,8 +56,8 @@ function init_getAllThemes(){
 function init_addTheme(){
     $(document).on('click','.globalIndividualTheme',function(){
         var name = $( this ).attr('name');
+        console.log(userS);
         globalThemes.forEach(themes =>{
-            console.log(themes);
             if(themes.name === name && userS.themes.includes(themes) === false){
                 var myRef = firebase.database().ref('Users/' + firebase.auth().currentUser.uid+"/homeworks").push();
                 var key = myRef.key;
@@ -65,10 +65,9 @@ function init_addTheme(){
                     name: themes.name,
                     description: themes.description,
                     uid: key,
-                    teacher: themes.tutorId,
-                    video: themes.link,
-                    file: themes.file,
-                    works: themes._works
+                    teacher: themes.teacher,
+                    video: themes.video,
+                    file: themes.file
                  }
                 myRef.set(newData);
             }
