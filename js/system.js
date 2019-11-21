@@ -249,7 +249,7 @@ class Teacher {
                 '</div>'+
                 '<p class="mb-1">'+theme.val().description+'</p>'+
                 '<small> <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalScrollable">Revisar Trabajos</button></small>'+
-                '<small> <button href='+theme.val().file+' type="button" class="btn btn-outline-secondary" >Revisar Archivo</button></small>'+
+                '<small> <button onclick=seeDocument(\''+theme.val().file+'\') type="button" class="btn btn-outline-secondary" >Revisar Archivo</button></small>'+
               '</a>'
                 }
                 

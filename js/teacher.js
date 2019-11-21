@@ -40,6 +40,13 @@ fileButton.addEventListener('change', function(e){
 
 
 
+function seeDocument(downloadUrl){
+    window.open( 
+        downloadUrl, "_blank"); 
+}
+
+
+
 
 
 
