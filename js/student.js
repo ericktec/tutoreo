@@ -1,24 +1,25 @@
 $( document ).ready(function() {
     init_studentControls();
+    init_getAllThemes();
+    init_addTheme();
 });
 
 function init_studentControls(){
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            var userInfo = firebase.database().ref('Users/' + firebase.auth().currentUser.uid);
-            userInfo.on('value', function(snapshot) {
+            firebase.database().ref('Users/' + firebase.auth().currentUser.uid).on('value', function(snapshot) {
                if(snapshot.val().type === 'teacher'){
-                   //mandar al usuario a teacher.html
+
                }else{
-                Student.name = snapshot.val().name;
-                Student.uid = snapshot.val().uid;
-                Student.type = snapshot.val().type;
+                userS.name = snapshot.val().name;
+                userS.uid = snapshot.val().uid;
+                userS.type = snapshot.val().type;
                 if(snapshot.val().homeworks !== undefined){
-                    Student.homework = snapshot.val().homework;
+                    userS.homework = snapshot.val().homework;
                     
                 }
                 if(snapshot.val().themes !== undefined){
-                    Student.themes = snapshot.val().themes;
+                    userS.themes = snapshot.val().themes;
                 }
                }
             });
@@ -35,4 +36,41 @@ function init_studentControls(){
         $(".Student-myListGlobal").css("display","block");  
         $(".Student-myList").css("display",'none');  
     });
+}
+
+function init_getAllThemes(){
+    firebase.database().ref('Themes/').once('value', function(snapshot) {
+        globalThemes = []
+        snapshot.forEach(theme => {
+            var tempTheme = new Themes(theme.val().name,theme.val().description,theme.key,theme.val().teacher,theme.val().link,theme.val().file);
+            globalThemes.push(tempTheme)
+        });
+        globalThemes.forEach(themes =>{
+            $( ".Student-myListGlobalAppend" ).append( "<a href='#' class='list-group-item list-group-item-action'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1'>"+themes.name+"</h5><small>Tema</small></div><p class='mb-1'>"+themes.description+"</p><small> <button type='button' class='btn btn-outline-secondary globalIndividualTheme' name='"+themes.name+"' data-toggle='modal' data-target='#exampleModalScrollable3'>Añadir tema</button></small></a>" );  
+        })
+         
+    })
+}
+
+
+function init_addTheme(){
+    $(document).on('click','.globalIndividualTheme',function(){
+        var name = $( this ).attr('name');
+        console.log(userS);
+        globalThemes.forEach(themes =>{
+            if(themes.name === name && userS.themes.includes(themes) === false){
+                var myRef = firebase.database().ref('Users/' + firebase.auth().currentUser.uid+"/homeworks").push();
+                var key = myRef.key;
+                var newData={
+                    name: themes.name,
+                    description: themes.description,
+                    uid: key,
+                    teacher: themes.teacher,
+                    video: themes.video,
+                    file: themes.file
+                 }
+                myRef.set(newData);
+            }
+        })
+    })
 }

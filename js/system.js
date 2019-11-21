@@ -58,7 +58,7 @@ class Student {
  
 }
 
-var user = new Student('','','',[],[],'');
+var userS = new Student('','','',[],[],'');
 
 
 class Teacher {
@@ -113,3 +113,66 @@ class Teacher {
 }
 
 var teacher = new Teacher('','','',[],'');
+
+
+class Themes {
+    constructor (cName,cdescription,cuid,cteacher,cvideo,cfile) {
+        this._name = cName;
+        this._description = cdescription;
+        this._uid = cuid;
+        this._teacher = cteacher;
+        this._video = cvideo;
+        this._file = cfile;
+    }
+    
+    get name() {
+        return this._name
+    }
+ 
+    set name( value ) {
+        this._name = value;
+    }
+
+    get description() {
+        return this._description
+    }
+ 
+    set description( value ) {
+        this._description = value;
+    }
+    
+    get uid() {
+        return this._uid
+    }
+ 
+    set uid( value ) {
+        this._uid = value;
+    }
+
+    get teacher() {
+        return this._teacher
+    }
+ 
+    set teacher( value ) {
+        this._teacher = value;
+    }
+
+    get video() {
+        return this._video
+    }
+ 
+    set video( value ) {
+        this._video = value;
+    }
+
+    get file() {
+        return this._file
+    }
+ 
+    set file( value ) {
+        this._file = value;
+    }
+ 
+}
+
+var globalThemes = []

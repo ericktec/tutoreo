@@ -25,6 +25,9 @@
                     <li class="nav-item active">
                         <a class="nav-link Student-link Student-ownThemes" href="#">Mis temas</a>
                     </li>
+                    <li class="nav-item active">
+                      <a class="nav-link Student-link Student-globalReseach" href="#">Buscar temas</a>
+                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -84,11 +87,10 @@
                                         <div class="d-flex w-100 justify-content-between">
                                         <h5 class="mb-1">Subir tarea</h5>
                                         </div>
-                                        <small></small><div class="input-group Student-calificationSelect">
+                                          <div class="input-group Student-calificationSelect">
                                                 <!-- Añadir coso de file!!!!!!!-->
-                                                <label for="Student-themeFile">Tarea: </label>
-                                                 <input type="file" class="" id="Student-themeFile">
-                                                </div></small>
+                                                <input type="file" class="" id="Student-themeFile">
+                                          </div>
                                         <small> <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="">Subir archivo</button></small>
                                     </a>
                                  </div>
@@ -101,15 +103,38 @@
             </div>
             <!-- -->
           </section>
-          <section class="Student-myList">
+
+          <section class="Student-myListGlobal">
             <div class="Student-myListHead">
-                <h1>Temas: </h1>
+                <h1>Todos los temas</h1>
+            </div>
+            <div class="list-group Student-myListGlobalAppend">
+              
+            </div>
+
+            <div class="modal fade" id="exampleModalScrollable3" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalScrollableTitle">Añadir tema</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                      </div>
+                      <div class="modal-body">
+                        <h5>Tema añadido con éxito</h5>
+                      </div>
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                      </div>
+                  </div>
+              </div>
             </div>
           </section>
     </div>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
     <script src="./js/firebaseConfig.js"></script>
     <script src="./js/wow.min.js"></script>
     <script src="./js/student.js"></script>
