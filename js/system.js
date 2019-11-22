@@ -2,7 +2,7 @@ var idThemeHelper;
 
 
 class Student {
-    constructor (cName,cEmail,cUid,cHomeworks,cThemes,cType) {
+    constructor(cName, cEmail, cUid, cHomeworks, cThemes, cType) {
         this._name = cName;
         this._email = cEmail;
         this._uid = cUid;
@@ -15,7 +15,7 @@ class Student {
         return this._name
     }
 
-    set name( value ) {
+    set name(value) {
         this._name = value;
     }
 
@@ -23,7 +23,7 @@ class Student {
         return this._email
     }
 
-    set email( value ) {
+    set email(value) {
         this._email = value;
     }
 
@@ -31,7 +31,7 @@ class Student {
         return this._uid
     }
 
-    set uid( value ) {
+    set uid(value) {
         this._uid = value;
     }
 
@@ -39,7 +39,7 @@ class Student {
         return this._homeworks
     }
 
-    set homeworks( value ) {
+    set homeworks(value) {
         this._homeworks = value;
     }
 
@@ -47,7 +47,7 @@ class Student {
         return this._themes
     }
 
-    set themes( value ) {
+    set themes(value) {
         this._themes = value;
     }
 
@@ -55,7 +55,7 @@ class Student {
         return this._type
     }
 
-    set type( value ) {
+    set type(value) {
         this._types = value;
     }
 
@@ -63,25 +63,25 @@ class Student {
 
 }
 
-var userS = new Student('','','',[],'','')
+var userS = new Student('', '', '', [], '', '')
 
 class Themes {
-    constructor(id,nombre,descripcion,trabajos,archivo,link, tutorId){
-        this._id=id;
-        this._name=nombre;
-        this._description=descripcion;
-        this._works=trabajos;
-        this._worksArray=trabajos;
-        this._file=archivo;
-        this._link=link;
-        this._tutorId=tutorId;
+    constructor(id, nombre, descripcion, trabajos, archivo, link, tutorId) {
+        this._id = id;
+        this._name = nombre;
+        this._description = descripcion;
+        this._works = trabajos;
+        this._worksArray = trabajos;
+        this._file = archivo;
+        this._link = link;
+        this._tutorId = tutorId;
     }
 
     get id() {
         return this._id
     }
 
-    set id( value ) {
+    set id(value) {
         this._id = value;
     }
 
@@ -89,7 +89,7 @@ class Themes {
         return this._name
     }
 
-    set name( value ) {
+    set name(value) {
         this._name = value;
     }
 
@@ -97,7 +97,7 @@ class Themes {
         return this._description
     }
 
-    set description( value ) {
+    set description(value) {
         this._description = value;
     }
 
@@ -105,7 +105,7 @@ class Themes {
         return this._tutorId
     }
 
-    set tutorId( value ) {
+    set tutorId(value) {
         this._tutorId = value;
     }
 
@@ -113,7 +113,7 @@ class Themes {
         return this._link
     }
 
-    set link( value ) {
+    set link(value) {
         this._link = value;
     }
 
@@ -121,7 +121,7 @@ class Themes {
         return this._file
     }
 
-    set file( value ) {
+    set file(value) {
         this._file = value;
     }
 
@@ -129,7 +129,7 @@ class Themes {
         return this._worksArray
     }
 
-    set _works(value ) {
+    set _works(value) {
         this._worksArray = value;
     }
 
@@ -140,7 +140,7 @@ var ownThemes = []
 
 
 class Teacher {
-    constructor (cName,cEmail,cUid,cThemes,cType) {
+    constructor(cName, cEmail, cUid, cThemes, cType) {
         this._name = cName;
         this._email = cEmail;
         this._uid = cUid;
@@ -152,7 +152,7 @@ class Teacher {
         return this._name
     }
 
-    set name( value ) {
+    set name(value) {
         this._name = value;
     }
 
@@ -160,7 +160,7 @@ class Teacher {
         return this._email
     }
 
-    set email( value ) {
+    set email(value) {
         this._email = value;
     }
 
@@ -168,7 +168,7 @@ class Teacher {
         return this._uid
     }
 
-    set uid( value ) {
+    set uid(value) {
         this._uid = value;
     }
 
@@ -176,7 +176,7 @@ class Teacher {
         return this._themes
     }
 
-    set themes( value ) {
+    set themes(value) {
         this._themes = value;
     }
 
@@ -184,18 +184,18 @@ class Teacher {
         return this._type
     }
 
-    set type( value ) {
+    set type(value) {
         this._types = value;
     }
 
-    UploadTheme(Name, Description, Link,fileUrl){
-        console.log(Name+Description+Link+fileUrl)
+    UploadTheme(Name, Description, Link, fileUrl) {
+        console.log(Name + Description + Link + fileUrl)
         var newthemekey = firebase.database().ref().child('posts').push().key;
         firebase.database().ref('Themes/' + newthemekey).set({
             name: Name,
             description: Description,
             link: Link,
-            file:fileUrl,
+            file: fileUrl,
             teacher: firebase.auth().currentUser.uid
         })
 
@@ -220,17 +220,17 @@ class Teacher {
                         console.log('Upload is running');
                         break;
                 }
-            },function(error){
+            }, function (error) {
 
             },
-            function(){
-                task.snapshot.ref.getDownloadURL().then(function(downloadURL){
+            function () {
+                task.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                     console.log(downloadURL);
                     var Name = $("#exampleFormControlInput1").val();
                     var Description = $("#exampleFormControlInput3").val();
                     var link = $("#exampleFormControlInput2").val();
                     console.log(Name + Description + link)
-                    tutor.UploadTheme(Name, Description, link,downloadURL);
+                    tutor.UploadTheme(Name, Description, link, downloadURL);
 
 
                 })
@@ -239,31 +239,56 @@ class Teacher {
 
     }
 
-    viewMyThemes(){
+    viewProposals() {
+        var proposal = document.getElementById("proposals");
+        proposal.innerHTML = '<a href="#" class="list-group-item list-group-item-action">' +
+            '<div class="d-flex w-100 justify-content-between">' +
+            '<h5 class="mb-1">Agrega un nuevo tema</h5>' +
+            '<small> <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalScrollable1">Agregar Tema</button></small>' +
+            '</div>' +
+            '<p class="mb-1">Crea un nuevo tema con su descripción, un video, nombre del tema y sube un archivo para complementar el tema.</p>' +
+            '</a>'
+        firebase.database().ref('Proposals/').once('value', function (snapshot) {
+            snapshot.forEach(proposals => {
+                proposal.innerHTML += '<a href="#" class="list-group-item list-group-item-action">' +
+            '<div class="d-flex w-100 justify-content-between">' +
+            '<h5 class="mb-1">'+proposals.val().userName+'propone'+proposals.val().name+'</h5>' +
+            '<small> <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalScrollable1">Agregar Tema</button></small>' +
+            '</div>' +
+            '<p class="mb-1">'+proposals.val().description+'</p>' +
+            '</a>'
+
+            });
+        })
+    }
+
+    viewMyThemes() {
         var themes = document.getElementById("tutorThemes");
-        themes.innerHTML=""
-        firebase.database().ref('Themes/').once('value', function(snapshot){
+        themes.innerHTML = ""
+        firebase.database().ref('Themes/').once('value', function (snapshot) {
             snapshot.forEach(theme => {
-                if(theme.val().teacher===firebase.auth().currentUser.uid){
-                    firebase.database().ref('/Users/' + theme.idAlumno).once('value').then(function(snapshot) {
-                        themes.innerHTML+='<a href="#" class="list-group-item list-group-item-action">'+
-                '<div class="d-flex w-100 justify-content-between">'+
-                  '<h5 class="mb-1">'+theme.val().name+'</h5>'+
-                  '<small>Tema</small>'+
-                '</div>'+
-                '<p class="mb-1">'+theme.val().description+'</p>'+
-                '<small> <button type="button" onclick=obtenerTrabajos(\''+theme.key+'\') class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalScrollable">Revisar Trabajos</button></small>'+
-                '<small> <button onclick=seeDocument(\''+theme.val().file+'\') type="button" class="btn btn-outline-secondary" >Revisar Archivo</button></small>'+
-              '</a>'
-                      });
-                    
+                if (theme.val().teacher === firebase.auth().currentUser.uid) {
+
+                    themes.innerHTML += '<a href="#" class="list-group-item list-group-item-action">' +
+                        '<div class="d-flex w-100 justify-content-between">' +
+                        '<h5 class="mb-1">' + theme.val().name + '</h5>' +
+                        '<small>Tema</small>' +
+                        '</div>' +
+                        '<p class="mb-1">' + theme.val().description + '</p>' +
+                        '<small> <button type="button" onclick=obtenerTrabajos(\'' + theme.key + '\') class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalScrollable">Revisar Trabajos</button></small>' +
+                        '<small> <button onclick=seeDocument(\'' + theme.val().file + '\') type="button" class="btn btn-outline-secondary" >Revisar Archivo</button></small>' +
+                        '</a>'
+
+
                 }
-                
+
             });
         })
     }
 
 }
 
-var teacher = new Teacher('','','',[],'');
+
+
+var teacher = new Teacher('', '', '', [], '');
 

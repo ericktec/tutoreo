@@ -13,6 +13,7 @@ function init_teacherControls(){
    $(".Teacher-addTheme").click(function (){
         $(".Teacher-myListGlobal").css("display","block");  
         $(".Teacher-myList").css("display","none");  
+        tutor.viewProposals()
     });
 }
 var tutor;
@@ -92,6 +93,8 @@ function gradeHomework(key){
         calificacion:grade
     })
 }
+
+
 
 
 
