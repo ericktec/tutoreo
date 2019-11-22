@@ -11,14 +11,14 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-color:#f5f5f5; padding-bottom: 5%;">
     <div class="container-fluid">
 
-            <nav class="navbar navbar-expand-lg Student-navegacion">
+            <nav style="background-color:#012954;"class="navbar navbar-expand-lg Student-navegacion">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand  Student-link" href="#">Tutoreo</a>
+                <a class="navbar-brand" href="#" style="color:#fff; text-decoration: none; opacity: 1;">TutoreOnline</a>
             
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -33,11 +33,10 @@
                       </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0">Buscar Tema</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" onclick="salir();">Cerrar Sesión</button>
                 </form>
                 </div>
-            </nav>
+            </nav> 
 
             <div class="modal fade" id="exampleModalScrollable4" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -70,69 +69,90 @@
 
           <section class="Student-myList">
             <div class="Student-myListHead">
-                <h1>Temas Inscritos</h1>
+                <h1 style="color:#012954; font-weight: 600;">Temas Inscritos</h1>
             </div>
-            <div class="list-group Student-myListOwnAppend">
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                        <div class="list-group Student-myListOwnAppend">
+                            </div>
+                
+                            <!-- Modal -->
+                            
+                            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalScrollableTitle">Tarea</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="list-group">
+                                                    <a href="#" class="list-group-item list-group-item-action">
+                                                        <div class="d-flex w-100 justify-content-between">
+                                                        <h5 class="mb-1">Subir tarea</h5>
+                                                        </div>
+                                                          <div class="input-group Student-calificationSelect">
+                                                                <!-- Añadir coso de file!!!!!!!-->
+                                                                <input type="file" class="" id="Student-themeFile">
+                                                          </div>
+                                                    </a>
+                                                 </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                </div>
+                <div class="col-md-2">
+
+                </div>
             </div>
 
-            <!-- Modal -->
-            
-            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-scrollable" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalScrollableTitle">Tarea</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">
-                                        <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">Subir tarea</h5>
-                                        </div>
-                                          <div class="input-group Student-calificationSelect">
-                                                <!-- Añadir coso de file!!!!!!!-->
-                                                <input type="file" class="" id="Student-themeFile">
-                                          </div>
-                                    </a>
-                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-            </div>
             <!-- -->
           </section>
 
           <section class="Student-myListGlobal">
             <div class="Student-myListHead">
-                <h1>Todos los temas</h1>
-            </div>
-            <div class="list-group Student-myListGlobalAppend">
-              
+                <h1 style="color:#012954; font-weight: 600;">Todos los temas</h1>
             </div>
 
-            <div class="modal fade" id="exampleModalScrollable3" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalScrollableTitle">Añadir tema</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                    <div class="list-group Student-myListGlobalAppend">
+              
+                    </div>
+                    <div class="modal fade" id="exampleModalScrollable3" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalScrollableTitle"></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                 <div class="modal-body">
+                                    <h5>Tema añadido con éxito</h5>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                          </div>
                       </div>
-                      <div class="modal-body">
-                        <h5>Tema añadido con éxito</h5>
-                      </div>
-                      <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                      </div>
-                  </div>
-              </div>
+                </div>
+                <div class="col-md-2    ">
+                    
+                </div>
             </div>
 
           </section>

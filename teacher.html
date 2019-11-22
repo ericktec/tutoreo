@@ -12,14 +12,14 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-color:#f5f5f5; padding-bottom: 5%;">
     <div class="container-fluid">
 
-          <nav class="navbar navbar-expand-lg Teacher-navegacion">
+          <nav style="background-color:#012954 !important;" class="navbar navbar-expand-lg Teacher-navegacion">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <a class="navbar-brand  Teacher-link" href="#">Tutoreo</a>
+              <a class="navbar-brand" href="#" style="color:#fff; text-decoration: none; opacity: 1;">TutoreOnline</a>
             
               <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -31,29 +31,38 @@
                   </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0">Buscar Tema</button>
+                  <button class="btn btn-outline-success my-2 my-sm-0" onclick="salir();">Cerrar Sesión</button>
                 </form>
               </div>
           </nav>
 
           <section class="Teacher-myList">
             <div class="Teacher-myListHead">
-                <h1>Mis temas</h1>
+                <h1 style="color:#012954; font-weight: 600;">Mis Temas</h1>
             </div>
 
-            <div id = "tutorThemes" class="list-group">
-                <a href="#" class="list-group-item list-group-item-action">
-                  <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">List group item heading</h5>
-                    <small>Tema</small>
+            <div class="row">
+              <div class="col-md-2">
+
+              </div>
+              <div class="col-md-8">
+                  <div id = "tutorThemes" class="list-group">
+                      <a href="#" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">List group item heading</h5>
+                          <small>Tema</small>
+                        </div>
+                        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                        <small> <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalScrollable">Revisar Trabajos</button></small>
+                      </a>
+                      
                   </div>
-                  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                  <small> <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalScrollable">Revisar Trabajos</button></small>
-                </a>
+      
+              </div>
+              <div class="col-md-2">
                 
+              </div>
             </div>
-
       
             <!-- Modal -->
             
@@ -104,17 +113,28 @@
           
           <section class="Teacher-myListGlobal">
                 <div class="Teacher-myListHead">
-                    <h1>Temas solicitados</h1>
+                    <h1 style="color:#012954; font-weight: 600;">Temas solicitados</h1>
                 </div>
-                <div id="proposals" class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Agrega un nuevo tema</h5>
-                        <small> <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalScrollable1">Agregar Tema</button></small>
+                <div class="row">
+                  <div class="col-md-2">
+
+                  </div>
+                  <div class="col-md-8">
+                      <div id="proposals" class="list-group">
+                          <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                              <h5 class="mb-1">Agrega un nuevo tema</h5>
+                              <small> <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalScrollable1">Agregar Tema</button></small>
+                            </div>
+                            <p class="mb-1">Crea un nuevo tema con su descripción, un video, nombre del tema y sube un archivo para complementar el tema.</p>
+                          </a>
                       </div>
-                      <p class="mb-1">Crea un nuevo tema con su descripción, un video, nombre del tema y sube un archivo para complementar el tema.</p>
-                    </a>
+                  </div>
+                  <div class="col-md-2">
+                    
+                  </div>
                 </div>
+
     
     
           

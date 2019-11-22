@@ -9,6 +9,14 @@ $( document ).ready(function() {
     init_themeProposal();
 });
 
+function salir(){
+    firebase.auth().signOut().then(function() {
+        window.location.replace('index.html');
+      }).catch(function(error) {
+        // An error happened.
+      });
+}
+
 function init_studentControls(){
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {

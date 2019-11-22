@@ -14,7 +14,11 @@ body{
     color: #fff !important;
     text-decoration: none;
 }
-
+.Teacher-link:hover{
+    font-size: 17px;
+    color: #fff !important;
+    text-decoration: none;
+}
 .navbar-brand{
     padding: .5rem 1rem;
 }

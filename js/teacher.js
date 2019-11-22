@@ -46,6 +46,14 @@ function seeDocument(downloadUrl){
         downloadUrl, "_blank"); 
 }
 
+function salir(){
+    firebase.auth().signOut().then(function() {
+        window.location.replace('index.html');
+      }).catch(function(error) {
+        // An error happened.
+      });
+}
+
 function obtenerTrabajos(key) {
     console.log(key);
 
