@@ -240,6 +240,7 @@ class Teacher {
     }
 
     viewProposals() {
+        var temp;
         var proposal = document.getElementById("proposals");
         proposal.innerHTML = '<a href="#" class="list-group-item list-group-item-action">' +
             '<div class="d-flex w-100 justify-content-between">' +
@@ -250,9 +251,10 @@ class Teacher {
             '</a>'
         firebase.database().ref('Proposals/').once('value', function (snapshot) {
             snapshot.forEach(proposals => {
+                temp= proposals.val().userName+" "+ "propone"+" "+proposals.val().name;
                 proposal.innerHTML += '<a href="#" class="list-group-item list-group-item-action">' +
             '<div class="d-flex w-100 justify-content-between">' +
-            '<h5 class="mb-1">'+proposals.val().userName+'propone'+proposals.val().name+'</h5>' +
+            '<h5 class="mb-1">'+temp+'</h5>' +
             '<small> <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModalScrollable1">Agregar Tema</button></small>' +
             '</div>' +
             '<p class="mb-1">'+proposals.val().description+'</p>' +
