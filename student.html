@@ -28,6 +28,9 @@
                     <li class="nav-item active">
                       <a class="nav-link Student-link Student-globalReseach" href="#">Buscar temas</a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link Student-link" href="#" data-toggle="modal" data-target="#exampleModalScrollable4">Proponer tema</a>
+                      </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -36,6 +39,35 @@
                 </div>
             </nav>
 
+            <div class="modal fade" id="exampleModalScrollable4" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Proponer tema</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Nobre del tema</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput11" placeholder="Fracciones">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">descripción</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput10" placeholder="Fracciones">
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-secondary UploadThemePorpuesta">Subir propuesta</button>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
           <section class="Student-myList">
             <div class="Student-myListHead">
                 <h1>Temas Inscritos</h1>
@@ -43,7 +75,6 @@
             <div class="list-group Student-myListOwnAppend">
             </div>
 
-      
             <!-- Modal -->
             
             <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
@@ -103,6 +134,7 @@
                   </div>
               </div>
             </div>
+
           </section>
     </div>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>

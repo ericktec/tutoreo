@@ -50,3 +50,12 @@ body{
     margin-left: 15%;
     margin-bottom: 4rem;
 }
+
+.Theme-filesDownload{
+    color: #fff;
+}
+
+.Theme-filesDownload:hover{
+    color: #fff;
+    text-decoration: none;
+}

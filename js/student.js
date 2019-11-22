@@ -5,7 +5,8 @@ $( document ).ready(function() {
     init_getAllThemes();
     init_addTheme();
     init_fileListener();
-    init_themeListener()
+    init_themeListener();
+    init_themeProposal();
 });
 
 function init_studentControls(){
@@ -60,13 +61,14 @@ function init_getAllThemes(){
 function init_getOwnThemes(){  
     firebase.database().ref('Users/' + userS.uid + '/themes').once('value', function(snapshot) {
         ownThemes = []
+        $( ".Student-myListOwnAppend" ).html(""); 
         if(snapshot.exists()){
             snapshot.forEach(theme => {
-                var tempTheme = new Themes(theme.key,theme.val().name,theme.val().description,[],theme.val().file,theme.val().link,theme.val().teacher);
+                var tempTheme = new Themes(theme.val().uid,theme.val().name,theme.val().description,[],theme.val().file,theme.val().link,theme.val().teacher);
                 ownThemes.push(tempTheme)
             });
             ownThemes.forEach(themes =>{
-                $( ".Student-myListOwnAppend" ).append( "<a href='theme.html' class='list-group-item list-group-item-action studentSpecific-theme' idTeacher='"+themes.tutorId+"' idTheme='"+themes.id+"'><div class='d-flex w-100 justify-content-between'><h5 class='mb-1'>"+themes.name+"</h5><small class='text-muted'>Tema</small></div><p class='mb-1'>"+themes.description+"</p><small> <button type='button' class='btn btn-outline-secondary Student-homeworkButton'  idTeacher='"+themes.tutorId+"' idTheme='"+themes.id+"' data-toggle='modal' data-target='#exampleModalScrollable'>Subir Tareas</button></small></a>" );  
+                $( ".Student-myListOwnAppend" ).append( "<a href='#' class='list-group-item list-group-item-action studentSpecific-theme' idTeacher='"+themes.tutorId+"' idTheme='"+themes.id+"'><div class='d-flex w-100 justify-content-between openIndividual-theme' idTeacher='"+themes.tutorId+"' idTheme='"+themes.id+"'><h5 class='mb-1'>"+themes.name+"</h5><small class='text-muted'>Tema</small></div><p class='mb-1'>"+themes.description+"</p><small> <button type='button' class='btn btn-outline-secondary Student-homeworkButton'  idTeacher='"+themes.tutorId+"' idTheme='"+themes.id+"' data-toggle='modal' data-target='#exampleModalScrollable'>Subir Tareas</button></small></a>" );  
             })
         }
     })
@@ -76,19 +78,18 @@ function init_getOwnThemes(){
 function init_addTheme(){
     $(document).on('click','.globalIndividualTheme',function(){
         var name = $( this ).attr('name');
-        console.log(userS);
-        globalThemes.forEach(themes =>{
-            if(themes.name === name && userS.themes.includes(themes) === false){
+        globalThemes.forEach(theme =>{
+            if(theme.name === name){
                 var myRef = firebase.database().ref('Users/' + firebase.auth().currentUser.uid+"/themes").push();
                 var key = myRef.key;
                 var newData={
-                    name: themes.name,
-                    description: themes.description,
-                    uid: key,
-                    teacher: themes.tutorId,
-                    video: themes.link,
-                    file: themes.file,
-                    works: themes._works
+                    name: theme.name,
+                    description: theme.description,
+                    uid: theme.id,
+                    teacher: theme.tutorId,
+                    link: theme.link,
+                    file: theme.file,
+                    works: theme._works
                  }
                 myRef.set(newData);
             }
@@ -112,8 +113,31 @@ function init_themeListener(){
         UploadFile(e);
     })
 
+    $(document).on('click','.openIndividual-theme',function(){
+        globalTeacherId = $(this).attr("idTeacher");
+        globalThemeId = $(this).attr("idTheme");
+        window.location.replace('theme.html?theme='+globalThemeId+'&teacher='+ globalTeacherId);
+    })
+
 }
 
+
+function init_themeProposal(){
+    $(document).on('click','.UploadThemePorpuesta',function(){
+        console.log("test")
+        proposalName = $("#exampleFormControlInput10").val();
+        proposalDescription = $("#exampleFormControlInput11").val()
+        var newthemekey = firebase.database().ref().child('posts').push().key;
+        firebase.database().ref('Proposals/' + newthemekey).set({
+            name: proposalName ,
+            description: proposalDescription,
+            uid: userS.uid,
+            userName:userS.name
+        })
+        proposalName = $("#exampleFormControlInput10").val('');
+        proposalDescription = $("#exampleFormControlInput11").val('')
+    })
+}
 
 
 
@@ -140,6 +164,7 @@ function UploadFile(e) {
         function(){
             task.snapshot.ref.getDownloadURL().then(function(downloadURL){
                 var newhomeworkkey = firebase.database().ref().child('posts').push().key;
+                console.log(globalThemeId)
                 firebase.database().ref('Homeworks/' + newhomeworkkey ).set({
                     urlTrabajo: downloadURL,
                     idAlumno: userS.uid,

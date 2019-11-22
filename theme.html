@@ -21,37 +21,35 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link Teacher-link Teacher-ownThemes" href="#">Mis temas</a>
+                <a class="nav-link Teacher-link Teacher-ownThemes" href="student.html">Mis temas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link Teacher-link Teacher-addTheme" href="#">Añadir temas</a>
+                <a class="nav-link Teacher-link Teacher-addTheme" href="student.html">Añadir temas</a>
             </li>
             </ul>
         </div>
     </nav>
     <div class="container-fluid">
        <div class="Theme-title">
-            <h1>Tema seleccionado</h1>
+            <h1 class="individualTheme-name">Tema seleccionado</h1>
        </div>
        <div class="Theme-description">
-            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, vel! Similique fugiat rerum necessitatibus reiciendis culpa esse enim porro in soluta repellat? Vel pariatur porro reiciendis distinctio eos error eius.</h5>
+            <h5 class="individualTheme-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, vel! Similique fugiat rerum necessitatibus reiciendis culpa esse enim porro in soluta repellat? Vel pariatur porro reiciendis distinctio eos error eius.</h5>
        </div>
        <div class="Theme-video">
-            <iframe width="65%" class="Theme-reproducer"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY">
-            </iframe>
+           
        </div>
        <div class="Theme-file">
-            <button type="button" class="btn btn-secondary" style="margin-right:2%;">Descargar archivos</button>
-            <button type="button" class="btn btn-secondary">Subir trabajo</button>
+            <button type="button" class="btn btn-secondary" style="margin-right:2%; margin-bottom: 1rem;"><a href="" class="Theme-filesDownload" download="true">Descargar archivos</a></button>
+            <h4 class="individualTheme-grade">Mi calificación:</h4>
        </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
     <script src="./js/firebaseConfig.js"></script>
     <script src="./js/wow.min.js"></script>
-    <script src="./js/theme.js"></script>
     <script src="./js/system.js"></script>
+    <script src="./js/theme.js"></script>
 </body>
 </html>
